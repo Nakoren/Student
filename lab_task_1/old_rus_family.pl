@@ -86,3 +86,20 @@ sister(X, Y) :- parent(M,X), parent(M,Y), not(X==Y) , woman(X).
 
 %sisters(+X)
 sisters(X) :- parent(M,X), parent(M,Y), not(X==Y) , woman(Y), write(Y), nl, fail.
+
+%Task 3
+%grand_son(+X,+Y)
+grand_son(X,Y) :- parent(M,X), parent(Y,M), man(X).
+
+%grand_sons(+X):
+grand_sons(X):- parent(X,M), parent(M,Y), man(Y), write(Y), nl, fail.
+
+%grand_pa_and_son(+X,+Y)
+grand_pa_and_son(X,Y) :- parent(X,M), parent(M,Y), man(X), man(Y).
+grand_pa_and_son(X,Y) :- parent(Y,M), parent(M,X), man(X), man(Y).
+
+%nephew(+X,+Y)
+nephew(X,Y) :- parent(P,X), brother(P,X), man(X).
+
+%nephews(+X)
+nephews(X) :- brother(X,P), parent(P,N) , man(N), write(N), nl, fail.
