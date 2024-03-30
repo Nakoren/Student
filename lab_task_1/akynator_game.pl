@@ -91,28 +91,28 @@ develop_date(Rainbow_six_siege,1)
 develop_date(Warframe,1)
 develop_date(Enter_the_gungeon,1)
 
-diffculty(Witcher_3,2)
-diffculty(Elder_scrolls_5,2)
-diffculty(World_of_warcraft,4)
-diffculty(Grand_Theft_Auto_5, 4)
-diffculty(League_of_legends, 4)
-diffculty(Dota_2, 4)
-diffculty(We_were_here,1)
-diffculty(Dark_Souls_3,3)   
-diffculty(Elden_ring, 3)
-diffculty(Hollow_knight, 3)
-diffculty(Katana_zero,2)
-diffculty(Call_Of_duty_Modern_warfare, 4)
-diffculty(The_binding_of_isaac,3)
-diffculty(Counter_strike_global_offensive,4)
-diffculty(doom_eternal, 2)
-diffculty(Frostpunk, 2)
-diffculty(Civilization_6,1)
-diffculty(PUBG,4)
-diffculty(Sekiro_shadows_die_twice,3)
-diffculty(Rainbow_six_siege,4)
-diffculty(Warframe,1)
-diffculty(Enter_the_gungeon,2)
+difficulty(Witcher_3,2)
+difficulty(Elder_scrolls_5,2)
+difficulty(World_of_warcraft,4)
+difficulty(Grand_Theft_Auto_5, 4)
+difficulty(League_of_legends, 4)
+difficulty(Dota_2, 4)
+difficulty(We_were_here,1)
+difficulty(Dark_Souls_3,3)   
+difficulty(Elden_ring, 3)
+difficulty(Hollow_knight, 3)
+difficulty(Katana_zero,2)
+difficulty(Call_Of_duty_Modern_warfare, 4)
+difficulty(The_binding_of_isaac,3)
+difficulty(Counter_strike_global_offensive,4)
+difficulty(doom_eternal, 2)
+difficulty(Frostpunk, 2)
+difficulty(Civilization_6,1)
+difficulty(PUBG,4)
+difficulty(Sekiro_shadows_die_twice,3)
+difficulty(Rainbow_six_siege,4)
+difficulty(Warframe,1)
+difficulty(Enter_the_gungeon,2)
 
 question1(Ans1) :- write("What's your game genre?"),nl
                 write("1) Shooter"),nl
@@ -144,5 +144,10 @@ question5(Ans5) :- write("What's difficulty of your game?"),nl
                 write("2) Normal"),nl
                 write("3) Hard"),nl
                 write("4) Game doesn't have difficulty"),nl
-                read(Ans5)      
+                read(Ans5)
 
+akynator() :- question1(Ans1), question2(Ans2), question3(Ans3)
+            question5(Ans5), question5(Ans5),
+            genre(res,Ans1), online(res,Ans2), studio_size(res,Ans3),
+            develop_date(res,Ans4), difficulty(res,Ans5),
+            write(res)
