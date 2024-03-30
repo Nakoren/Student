@@ -114,6 +114,7 @@ difficulty(rainbow_six_siege,4).
 difficulty(warframe,1).
 difficulty(enter_the_gungeon,2).
 
+%question1(-Ans1)
 question1(Ans1) :- write("What's your game genre?"),nl,
                 write("1) Shooter"),nl,
                 write("2) Strategy"),nl,
@@ -124,21 +125,25 @@ question1(Ans1) :- write("What's your game genre?"),nl,
                 write("7) Roguelike"),nl,
                 read(Ans1).
 
+%question2(-Ans2)
 question2(Ans2) :- write("Does your game is online game?"),nl,
                 write("1) Yes"),nl,
                 write("2) No"),nl,
                 read(Ans2).
 
+%question3(-Ans3)
 question3(Ans3) :- write("Is your game developed by big studio?"),nl,
                 write("1) Yes"),nl,
                 write("2) No"),nl,
                 read(Ans3).
 
+%question4(-Ans4)
 question4(Ans4) :- write("Was your game developed before 2017?"),nl,
                 write("1) Yes"),nl,
                 write("2) No"),nl,
                 read(Ans4).  
 
+%question5(-Ans5)
 question5(Ans5) :- write("What's difficulty of your game?"),nl,
                 write("1) Easy"),nl,
                 write("2) Normal"),nl,
@@ -146,6 +151,7 @@ question5(Ans5) :- write("What's difficulty of your game?"),nl,
                 write("4) Game doesn't have difficulty"),nl,
                 read(Ans5).
 
+%akynator/0 - Входной предикат акинатора
 akynator :- question1(Ans1), question2(Ans2), question3(Ans3),    
             question4(Ans4), question5(Ans5),
             genre(Res,Ans1), online(Res,Ans2), studio_size(Res,Ans3),
