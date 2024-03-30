@@ -65,13 +65,13 @@ mother(X) :- parent(Y,X), woman(Y), write(Y), nl, fail.
 brother(X, Y) :- parent(M,X), parent(M,Y), man(M), not(X==Y) ,man(X).
 
 %brothers(+X)
-brothers(X) :- parent(M,X), parent(M,Y), man(M) ,not(X==Y), man(Y), man(X), write(Y), nl, fail.
+brothers(X) :- parent(M,X), parent(M,Y), man(M) , not(X==Y), man(Y), man(X), write(Y), nl, fail.
 
 %b_s(+X,+Y)
 b_s(X, Y) :- parent(M,X), parent(M,Y), man(M),not(X==Y).
 
 %b_s(+X)
-b_s(X) :- parent(M,X), parent(M,Y), man(M) ,write(Y), not(X==Y), nl fail.
+b_s(X) :- parent(M,X), parent(M,Y), man(M) ,write(Y), not(X==Y), nl, fail.
 
 %Task 2
 %Var 7
