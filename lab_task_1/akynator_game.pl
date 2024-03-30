@@ -98,7 +98,7 @@ diffculty(Grand_Theft_Auto_5, 4)
 diffculty(League_of_legends, 4)
 diffculty(Dota_2, 4)
 diffculty(We_were_here,1)
-diffculty(Dark_Souls_3,3)
+diffculty(Dark_Souls_3,3)   
 diffculty(Elden_ring, 3)
 diffculty(Hollow_knight, 3)
 diffculty(Katana_zero,2)
@@ -113,3 +113,36 @@ diffculty(Sekiro_shadows_die_twice,3)
 diffculty(Rainbow_six_siege,4)
 diffculty(Warframe,1)
 diffculty(Enter_the_gungeon,2)
+
+question1(Ans1) :- write("What's your game genre?"),nl
+                write("1) Shooter"),nl
+                write("2) Strategy"),nl
+                write("3) RPG"),nl
+                write("4) Platformer"),nl
+                write("5) Moba"),nl
+                write("6) Puzzle"),nl
+                write("7) Roguelike"),nl
+                read(Ans1)
+
+question2(Ans2) :- write("Does your game is online game?"),nl
+                write("1) Yes"),nl
+                write("2) No"),nl
+                read(Ans2)
+
+question3(Ans3) :- write("Is your game developed by big studio?"),nl
+                write("1) Yes"),nl
+                write("2) No"),nl
+                read(Ans3)
+
+question4(Ans4) :- write("Was your game developed before 2017?"),nl
+                write("1) Yes"),nl
+                write("2) No"),nl
+                read(Ans4)   
+
+question5(Ans5) :- write("What's difficulty of your game?"),nl
+                write("1) Easy"),nl
+                write("2) Normal"),nl
+                write("3) Hard"),nl
+                write("4) Game doesn't have difficulty"),nl
+                read(Ans5)      
+
