@@ -158,7 +158,7 @@ question5(Ans5) :- write("What's difficulty of your game?"),nl,
                 write("4) Game doesn't have difficulty"),nl,
                 read(Ans5).
 
-%extraQuestion(-AnsExtra)
+%extraQuestion(?Res, ?Ans1, ?Ans2, ?Ans3, ?Ans4, ?Ans5)
 extraQuestion(Res, 3, 2, 1 , 1 ,2) :- write("Was your game developed by CD Project Red?"), nl,
             write("1) Yes"), nl,
             write("2) No"), nl,
