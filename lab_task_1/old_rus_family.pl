@@ -75,16 +75,16 @@ b_s(X) :- parent(M,X), parent(M,Y), man(M) ,write(Y), not(X==Y), nl, fail.
 
 %Task 2
 %Var 7
-%father(+X,+Y)
+%father(?X,?Y)
 father(X, Y) :- parent(Y,X), man(Y).
 
-%father(+X)
+%father(?X)
 father(X) :- parent(Y,X), man(Y), write(Y).
 
-%sister(+X,+Y)
+%sister(?X,?Y)
 sister(X, Y) :- parent(M,X), parent(M,Y), not(X==Y) , woman(X).
 
-%sisters(+X)
+%sisters(?X)
 sisters(X) :- parent(M,X), parent(M,Y), not(X==Y) , woman(Y), write(Y), nl, fail.
 
 %Task 3
@@ -99,7 +99,10 @@ grand_pa_and_son(X,Y) :- parent(X,M), parent(M,Y), man(X), man(Y).
 grand_pa_and_son(X,Y) :- parent(Y,M), parent(M,X), man(X), man(Y).
 
 %nephew(+X,+Y)
-nephew(X,Y) :- parent(P,X), brother(P,X), man(X).
+nephew(X,Y) :- parent(P,X), brother(P,Y) ,man(X).
 
 %nephews(+X)
 nephews(X) :- brother(X,P), parent(P,N) , man(N), write(N), nl, fail.
+
+%father_in_law(?X)
+father_in_law(X) :- man(X),  parent(X,C), parent(W,C), parent(F,W), man(F), write(F).

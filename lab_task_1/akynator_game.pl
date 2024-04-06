@@ -20,10 +20,11 @@ genre(pubg,1).
 genre(sekiro_shadows_die_twice,3).
 genre(rainbow_six_siege,1).
 genre(warframe,1).
-genre(enter_the_gungeon,6).
+genre(enter_the_gungeon,7).
 
 online(witcher_3,2).
 online(elder_scrolls_5,2).
+online(battlefield_4,1).
 online(world_of_warcraft,1).
 online(grand_theft_auto_5,2).
 online(league_of_legends,1).
@@ -47,6 +48,7 @@ online(enter_the_gungeon,2).
 
 studio_size(witcher_3,1).
 studio_size(elder_scrolls_5,1).
+studio_size(battlefield_4,1).
 studio_size(world_of_warcraft,1).
 studio_size(grand_theft_auto_5,1).
 studio_size(league_of_legends,1).
@@ -70,6 +72,7 @@ studio_size(enter_the_gungeon,2).
 
 develop_date(witcher_3,1).
 develop_date(elder_scrolls_5,1).
+develop_date(battlefield_4,1).
 develop_date(world_of_warcraft,1).
 develop_date(grand_theft_auto_5, 1).
 develop_date(league_of_legends, 1).
@@ -93,10 +96,11 @@ develop_date(enter_the_gungeon,1).
 
 difficulty(witcher_3,2).
 difficulty(elder_scrolls_5,2).
+difficulty(battlefield_4,4).
 difficulty(world_of_warcraft,4).
 difficulty(grand_theft_auto_5, 4).
-difficulty(league_of_legends, 4).
-difficulty(dota_2, 4).
+difficulty(league_of_legends, 2).
+difficulty(dota_2, 3).
 difficulty(we_were_here,1).
 difficulty(dark_Souls_3,3).   
 difficulty(elden_ring, 3).
@@ -113,6 +117,9 @@ difficulty(sekiro_shadows_die_twice,3).
 difficulty(rainbow_six_siege,4).
 difficulty(warframe,1).
 difficulty(enter_the_gungeon,2).
+
+extraQuestion(witcher_3, 1, 1).
+extraQuestion(elder_scrolls_5, 1, 2).
 
 %question1(-Ans1)
 question1(Ans1) :- write("What's your game genre?"),nl,
@@ -151,9 +158,24 @@ question5(Ans5) :- write("What's difficulty of your game?"),nl,
                 write("4) Game doesn't have difficulty"),nl,
                 read(Ans5).
 
+%extraQuestion(-AnsExtra)
+extraQuestion(Res, 3, 2, 1 , 1 ,2) :- write("Was your game developed by CD Project Red?"), nl,
+            write("1) Yes"), nl,
+            write("2) No"), nl,
+            read(AnsExtra),
+            extraQuestion(Res,1,AnsExtra).
+
+
 %akynator/0 - Входной предикат акинатора
-akynator :- question1(Ans1), question2(Ans2), question3(Ans3),    
-            question4(Ans4), question5(Ans5),
-            genre(Res,Ans1), online(Res,Ans2), studio_size(Res,Ans3),
-            develop_date(Res,Ans4), difficulty(Res,Ans5),
-            write(Res). 
+akynator:- 
+            question1(Ans1), question2(Ans2), 
+            question3(Ans3), question4(Ans4),
+            question5(Ans5), 
+            genre(Res,Ans1), online(Res,Ans2), 
+            studio_size(Res,Ans3), develop_date(Res,Ans4), 
+            difficulty(Res,Ans5),
+            extraQuestion(Res, Ans1, Ans2, Ans3, Ans4, Ans5),
+            write(Res).
+
+
+            
