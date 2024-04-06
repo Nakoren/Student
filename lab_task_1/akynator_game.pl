@@ -165,17 +165,33 @@ extraQuestion(Res, 3, 2, 1 , 1 ,2) :- write("Was your game developed by CD Proje
             read(AnsExtra),
             extraQuestion(Res,1,AnsExtra).
 
+%checkSingleRes(?ResList)
+checkSingleRes(ResList) :- length(ResList, Count), (Count == 1 -> 
+                [Res|_] = ResList, write("Result is: "), write(Res),nl, fail;
+                true
+            ).
 
 %akynator/0 - Входной предикат акинатора
 akynator:- 
-            question1(Ans1), question2(Ans2), 
-            question3(Ans3), question4(Ans4),
+            question1(Ans1), 
+            findall(Res, (genre(Res,Ans1)), ResList1),
+            checkSingleRes(ResList1),
+
+            question2(Ans2), 
+            findall(Res, (genre(Res,Ans1), online(Res,Ans2)), ResList2),
+            checkSingleRes(ResList2),
+
+            question3(Ans3), 
+            findall(Res, (genre(Res,Ans1), online(Res,Ans2), studio_size(Res,Ans3)), ResList3),
+            checkSingleRes(ResList3),
+
+            question4(Ans4),
+            findall(Res, (genre(Res,Ans1), online(Res,Ans2), studio_size(Res,Ans3), develop_date(Res,Ans4)), ResList4),
+            checkSingleRes(ResList4),
+
             question5(Ans5), 
-            genre(Res,Ans1), online(Res,Ans2), 
-            studio_size(Res,Ans3), develop_date(Res,Ans4), 
-            difficulty(Res,Ans5),
+            findall(Res, (genre(Res,Ans1), online(Res,Ans2), studio_size(Res,Ans3), develop_date(Res,Ans4), difficulty(Res,Ans5)), ResList5),
+            checkSingleRes(ResList5),
+
             extraQuestion(Res, Ans1, Ans2, Ans3, Ans4, Ans5),
-            write(Res).
-
-
-            
+            write("Result is: "), write(Res).
