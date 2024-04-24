@@ -52,13 +52,13 @@ is_square_free(Number, Divider) :- not((is_divider(Number, Divider), is_square(D
 
 %Task 1.5
 
-%read_list(+Length, -List)
-read_list(0, []).
-read_list(Length, [Head|Tail]) :- read(Head), NewLength is Length - 1, read_list(NewLength, Tail).
+%list_reader(+Length, -List)
+list_reader(0, []).
+list_reader(Length, [Head|Tail]) :- read(Head), NewLength is Length - 1, list_reader(NewLength, Tail).
 
-%write_list(+List)
-write_list([]).
-write_list([Head|Tail]) :- write(Head), write(" "), write_list(Tail).
+%list_writer(+List)
+list_writer([]).
+list_writer([Head|Tail]) :- write(Head), write(" "), list_writer(Tail).
 
 %Task 1.6
 
@@ -68,12 +68,6 @@ sum_list_down(List, Sum) :- sum_list_down(List, 0, Sum).
 % sum_list_down(+List, +CurSum, ?Sum)
 sum_list_down([], CurSum, CurSum) :- !.
 sum_list_down([Head|Tail], CurSum, Sum) :- NewSum is CurSum + Head, sum_list_down(Tail, NewSum, Sum).
-
-% program_calc_sum_list/0 
-program_calc_sum_list :- write("Insert list size: "), read(Length),
-                         write("Insert list"), write(Length), nl,
-                         read_list(Length, List), sum_list_down(List, Sum),
-                         write("Sum: "), write(Sum), write(".").
 
 % sum_list_up(+List, ?Sum)
 sum_list_up([], 0) :- !.
@@ -87,5 +81,8 @@ remove_items_by_digit_sum(DigitSum, [HeadIn|TailIn], ListOut) :- digits_sum_down
 remove_items_by_digit_sum(DigitSum, [HeadIn|TailIn], [HeadIn|TailOut]) :- digits_sum_down(HeadIn, HeadInSum), HeadInSum =\= DigitSum, remove_items_by_digit_sum(DigitSum, TailIn, TailOut).
 
 % remove_items_by_digit_sum_and_print(+DigitSum, +List)
-remove_items_by_digit_sum_and_print(DigitSum, List) :- remove_items_by_digit_sum(DigitSum, List, Result), write_list(Result).
+remove_items_by_digit_sum_and_print(DigitSum, List) :- remove_items_by_digit_sum(DigitSum, List, Result), list_writer(Result).
 
+%list_writer(+List[])
+list_writer([]) :- !.
+list_writer([Head|Tail]) :- print(Head), list_writer(Tail). 
