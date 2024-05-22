@@ -1,6 +1,6 @@
 import kotlin.math.max
 
-class NumberFunctionsCycle {
+public class NumberFunctionsCycle {
     fun numberMult(num: Int): Int {
         var number = num;
         var res = 1;
