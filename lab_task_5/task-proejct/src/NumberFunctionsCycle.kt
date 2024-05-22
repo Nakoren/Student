@@ -29,4 +29,6 @@ class NumberFunctionsCycle {
         } while ((a % test == 0) && (b % test == 0))
         return test
     }
+
+
 }

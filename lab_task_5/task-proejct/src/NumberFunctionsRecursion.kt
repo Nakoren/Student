@@ -31,7 +31,7 @@ class NumberFunctionsRecursion {
         if((num%10%2!=0)&&(num%10>3)){
             temp = 1
         }
-        return numberMultTail(num/10, temp)
+        return  countUnOddLess3Tail(num/10, temp)
     }
 
     tailrec fun getLCDTail(a: Int, b: Int, cur: Int): Int {
@@ -41,4 +41,6 @@ class NumberFunctionsRecursion {
         }
         return getLCDTail(a,b,cur-1)
     }
+    fun calculateNumber(function: (Int, Int)->Int, num:Int, baseResult: Int): Int =
+        function(num, baseResult)
 }
