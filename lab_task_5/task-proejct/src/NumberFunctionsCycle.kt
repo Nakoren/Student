@@ -22,12 +22,11 @@ class NumberFunctionsCycle {
         }
         return res;
     }
-    fun getLCD(a:Int, b:Int): Int{
-        var test = max(a,b)
+    fun getLCD(a:Int, b:Int): Int {
+        var test = max(a, b)
         do {
             test--;
-        }
-        while((a%test==0)&&(b%test==0))
+        } while ((a % test == 0) && (b % test == 0))
         return test
     }
 }
